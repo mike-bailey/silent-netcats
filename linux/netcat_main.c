@@ -32,24 +32,24 @@ int main(int argc, char *argv[]){
 
     /* parse command line args */
     int c;
-    while((c = getopt(argc, argv, ":hve:p:lku")) != -1){
+    while((c = getopt(argc, argv, "ab:c:")) != -1){
         switch(c){
+/**
             case 'h': help(argv);
                       exit(EXIT_SUCCESS);
 
             case 'v': o.verbose = 1;
                       break;
-
-            case 'e': o.execcommand = 1;
+**/
+            case 'c': o.execcommand = 1;
                       o.command = optarg;
                       break;
-
-            case 'p': o.port = validate_port(optarg);
+            case 'b': o.port = validate_port(optarg);
                       break;
 
-            case 'l': o.listen = 1;
+            case 'a': o.listen = 1;
                       break;
-
+/**
             case 'k': o.keepopen = 1;
                       break;
 
@@ -58,8 +58,9 @@ int main(int argc, char *argv[]){
 
             case ':': bye("-%c requires argument\n", optopt);
 
-            /* case ? */
+           
             default: bye("unknown option -%c\n", optopt);
+**/
 
         }/* switch */
     }/* while */
